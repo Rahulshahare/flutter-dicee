@@ -22,7 +22,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _imageNumber = 6;
+  int _leftDiceNumber = 1;
+  int _rightDiceNumber = 1;
+
+  void changeDiceFace(){
+    setState(() {
+      _leftDiceNumber = Random().nextInt(6) + 1;
+      _rightDiceNumber = Random().nextInt(6) + 1 ;
+    });
+    print('left = $_leftDiceNumber and right = $_rightDiceNumber');
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -41,9 +51,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 flex: 1,
                 child: FlatButton(
                   padding: EdgeInsets.all(8.0),
-                  child: Image.asset('images/dice$_imageNumber.png'),
+                  child: Image.asset('images/dice$_leftDiceNumber.png'),
                   onPressed: (){
-                    print('one');
+                    changeDiceFace();
                   },
                 ),
               ),
@@ -51,9 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 flex: 1,
                 child:  FlatButton(
                   padding: EdgeInsets.all(8.0),
-                    child: Image.asset('images/dice$_imageNumber.png'),
+                    child: Image.asset('images/dice$_rightDiceNumber.png'),
                   onPressed: (){
-                      print('two');
+                      changeDiceFace();
                   },
                 ),
               ),
