@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +12,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Dicee',
-      home: MyHomePage(),
+      home: Scaffold(
+        backgroundColor: Colors.amber,
+        appBar: AppBar(
+          backgroundColor: Colors.amber,
+          title: Text('Dicee',),
+        ),
+        body: DoubleBackToCloseApp(
+          snackBar:  const SnackBar(content: Text('Tap again to exit.'),),
+          child: MyHomePage(),
+        ),
+      ),
 
     );
   }
@@ -37,13 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
-      backgroundColor: Colors.amber,
-      appBar: AppBar(
-        backgroundColor: Colors.amber,
-        title: Text('Dicee',),
-      ),
-      body: Column(
+      return  Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
@@ -94,8 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
 
-      ),
-    );
+      );
 
   }
 }
