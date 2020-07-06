@@ -27,7 +27,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.amber,
       appBar: AppBar(
-        title: Text('Dicee'),
+        backgroundColor: Colors.amber,
+        title: Text('Dicee',),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -36,12 +37,25 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Expanded(
                 flex: 1,
-                child: Image.asset('images/dice1.png'),
+                child: FlatButton(
+                  padding: EdgeInsets.all(8.0),
+                  child: Image.asset('images/dice1.png'),
+                  onPressed: (){
+                    print('one');
+                  },
+                ),
               ),
               Expanded(
                 flex: 1,
-                child:  Image.asset('images/dice1.png'),
+                child:  FlatButton(
+                  padding: EdgeInsets.all(8.0),
+                    child: Image.asset('images/dice2.png'),
+                  onPressed: (){
+                      print('two');
+                  },
+                ),
               ),
+
             ],
           ),
         ],
