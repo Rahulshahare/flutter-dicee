@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,10 +25,28 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      backgroundColor: Colors.amber,
       appBar: AppBar(
-        title: Text('App'),
+        title: Text('Dicee'),
       ),
-      body: Text('flutter App'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            children: [
+              Expanded(
+                flex: 1,
+                child: Image.asset('images/dice1.png'),
+              ),
+              Expanded(
+                flex: 1,
+                child:  Image.asset('images/dice1.png'),
+              ),
+            ],
+          ),
+        ],
+
+      ),
     );
 
   }
