@@ -21,6 +21,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _imageNumber = 6;
   @override
   Widget build(BuildContext context) {
 
@@ -39,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 flex: 1,
                 child: FlatButton(
                   padding: EdgeInsets.all(8.0),
-                  child: Image.asset('images/dice1.png'),
+                  child: Image.asset('images/dice$_imageNumber.png'),
                   onPressed: (){
                     print('one');
                   },
@@ -49,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 flex: 1,
                 child:  FlatButton(
                   padding: EdgeInsets.all(8.0),
-                    child: Image.asset('images/dice2.png'),
+                    child: Image.asset('images/dice$_imageNumber.png'),
                   onPressed: (){
                       print('two');
                   },
