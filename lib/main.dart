@@ -70,6 +70,27 @@ class _MyHomePageState extends State<MyHomePage> {
 
             ],
           ),
+          Row(
+            children: [
+              Expanded(
+                child: FlatButton(
+                  padding: EdgeInsets.all(10.0),
+                  autofocus: true,
+                  color: Colors.white,
+                  onPressed: (){
+                    changeDiceFace();
+                  },
+                  child: Text(
+                      'SHUFFLE',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        letterSpacing: 2.0,
+                      ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
 
       ),
