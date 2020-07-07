@@ -7,20 +7,57 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+
+class _MyAppState extends State<MyApp> {
+  List color = [ Colors.blue, Colors.amber, Colors.red, Colors.cyan, Colors.deepPurple, Colors.orange, Colors.indigo, Colors.teal, Colors.pink, Colors.yellow ];
+  int index = 1;
+  void _changeColorIndex(){
+    setState(() {
+      index = Random().nextInt(9);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Dicee',
       home: Scaffold(
-        backgroundColor: Colors.amber,
+        backgroundColor: color[index],
         appBar: AppBar(
-          backgroundColor: Colors.amber,
+          backgroundColor: color[index],
           title: Text('Dicee',),
         ),
         body: DoubleBackToCloseApp(
           snackBar:  const SnackBar(content: Text('Tap again to exit.'),),
           child: MyHomePage(),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.format_color_fill),
+          onPressed: (){
+            _changeColorIndex();
+          },
+        ),
+        bottomNavigationBar: Padding(
+          padding: EdgeInsets.all(0.1),
+          child: FlatButton(
+            padding: EdgeInsets.all(0.0),
+            color: Colors.white,
+            child: Text(
+              'DICE APP',
+              style: TextStyle(
+                fontSize: 20.0,
+                letterSpacing: 2.0,
+                color: color[index],
+              ),
+            ),
+            onPressed: (){
+              print('hello');
+            },
+          ),
         ),
       ),
 
@@ -73,30 +110,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 ),
               ),
+            ],
+          ),
 
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: FlatButton(
-                  padding: EdgeInsets.all(10.0),
-                  autofocus: true,
-                  color: Colors.white,
-                  onPressed: (){
-                    changeDiceFace();
-                  },
-                  child: Text(
-                      'SHUFFLE',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        letterSpacing: 2.0,
-                      ),
-                  ),
-                ),
-              ),
-            ],
-          ),
         ],
 
       );
